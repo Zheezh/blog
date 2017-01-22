@@ -8,7 +8,7 @@
 
 <table>
  
-  <% @projects.each do |project| %>
+  <% Project.all.each do |project| %>
     
       <h3 style="text-transform: uppercase;"><%= project.title %></h3>
       	<ul>
@@ -34,11 +34,11 @@
 
 <%= form_for :todo, url: create_path, :html => {:id => "form-id"} do |f| %>
   <p>
-    <%= f.text_field :text %>
+    <%= f.text_field :text, placeholder: "Название задачи..." %>
   </p>
 
 
- 	<%= f.select :project_id, @projects.collect {|p| [p.title, p.id]} %>
+ 	<%= f.select :project_id, Project.all.collect {|p| [p.title, p.id]} %>
 
 
   <p>
