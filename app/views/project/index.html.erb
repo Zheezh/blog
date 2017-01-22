@@ -1,0 +1,51 @@
+<h1>Задачи</h1>
+
+<%= javascript_include_tag "application" %>
+
+
+<br>
+
+
+<table>
+ 
+  <% @projects.each do |project| %>
+    
+      <h3 style="text-transform: uppercase;"><%= project.title %></h3>
+      	<ul>
+      		<% Todo.all.each do |todo| %>
+      		
+      			<% if (todo.project_id == project.id) %>
+
+      				<li><%= todo.text %></li>
+      			<% end %>
+      			
+      		<% end %>
+      	</ul>
+  <% end %>
+</table>
+
+<h4>Добавить новую задачу  <a href="#" onclick="showDiv()"> + </a>
+</h4>
+
+
+<div id="newTask">
+<h3>НОВАЯ ЗАДАЧА</h3>
+
+
+<%= form_for :todo, url: create_path, :html => {:id => "form-id"} do |f| %>
+  <p>
+    <%= f.text_field :text %>
+  </p>
+
+
+ 	<%= f.select :project_id, @projects.collect {|p| [p.title, p.id]} %>
+
+
+  <p>
+  	<a href="#" onclick="closeDiv()"> ОТМЕНА </a>
+    <a href="#" onclick="document.getElementById('form-id').submit();"> ОК </a>
+    
+  </p>
+
+<% end %>
+</div>

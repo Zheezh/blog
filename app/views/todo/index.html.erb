@@ -1,0 +1,17 @@
+<h1>Задачи</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @todos.each do |todo| %>
+    <tr>
+      <td><%= Project.find(todo.project_id).title %></td>
+      <td><%= todo.text %></td>
+      <td><%= todo.isCompleted %></td>
+      
+    </tr>
+  <% end %>
+</table>

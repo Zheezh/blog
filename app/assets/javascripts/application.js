@@ -13,3 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready(function() {closeDiv()});
+
+function closeDiv() {
+	$('#newTask').hide();
+}
+
+function showDiv() {
+	$('#newTask').show();
+}
