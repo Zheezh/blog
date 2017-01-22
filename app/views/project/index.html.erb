@@ -8,7 +8,7 @@
 
 <table>
  
-  <% Project.all.each do |project| %>
+  <% @projects.each do |project| %>
     
       <h3 style="text-transform: uppercase;"><%= project.title %></h3>
       	<ul>
@@ -38,7 +38,7 @@
   </p>
 
 
- 	<%= f.select :project_id, Project.all.collect {|p| [p.title, p.id]} %>
+ 	<%= f.select :project_id, @projects.collect {|p| [p.title, p.id]} %>
 
 
   <p>
