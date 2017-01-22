@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20170120115741) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "title"
-    t.integer  "todos"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -28,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170120115741) do
     t.integer  "project_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["project_id"], name: "index_todos_on_project_id", using: :btree
   end
 
+  add_foreign_key "todos", "projects"
 end
