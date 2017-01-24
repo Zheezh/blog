@@ -15,8 +15,6 @@
 //= require_tree .
 
 
-$(document).ready(function() {closeDiv()});
-
 function closeDiv() {
 	$('#newTask').hide();
 }
